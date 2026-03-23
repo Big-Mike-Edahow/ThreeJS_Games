@@ -13,7 +13,7 @@ func main() {
 
 	fileServer := http.FileServer(http.Dir("./static"))
 	mux.Handle("/static/", http.StripPrefix("/static", fileServer))
-
+	
 	mux.HandleFunc("/", indexHandler)
 
 	log.Println("Starting HTTP Server on port 8080...")
