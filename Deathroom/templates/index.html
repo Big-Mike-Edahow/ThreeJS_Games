@@ -1,0 +1,75 @@
+<!-- index.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="importmap">
+        {"imports":{"three": "https://cdn.jsdelivr.net/npm/three@0.183.2/build/three.module.js",
+                    "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.183.2/examples/jsm/"}}
+    </script>
+    <link href="./static/css/style.css" type="text/css" rel="stylesheet">
+    <link href="./favicon.ico" type="image/png" rel="icon">
+    <title>ThreeJS - DeathRoom</title>
+</head>
+
+<body>
+    <div id="rotateDevice">
+        <p>📱</p>
+        <p>Please rotate your device</p>
+        <p>to landscape mode</p>
+    </div>
+
+    <div id="titleBackground"></div>
+    <div id="message">Loading Simple Game...</div>
+    <div id="gameTitle">DEATHROOM</div>
+    <button id="startButton">START GAME</button>
+    <div id="healthBar" style="display: none;">
+        <div id="healthFill"></div>
+    </div>
+    <div id="bossHealthBar">
+        <div id="bossHealthFill"></div>
+        <div id="bossHealthText">100/100</div>
+    </div>
+    <div id="bossName"></div>
+    <div id="crosshair" style="display: none;">+</div>
+    <div id="controls" style="display: none;">
+        WASD: Move | Mouse: Look | Click: Swing
+    </div>
+    <div id="statsPanel" style="display: none;">
+        <div>Strength: <span id="strengthStat">1</span></div>
+        <div>Speed: <span id="speedStat">1</span></div>
+        <div>Room: <span id="roomStat">1</span></div>
+    </div>
+    <div id="weaponDisplay" style="display: none;">
+        <div id="currentWeapon">Basic Sword</div>
+    </div>
+    <div id="pickupMessage"></div>
+    <div id="damageOverlay"></div>
+    <div id="gameOverScreen">
+        <h1 id="gameOverTitle">GAME OVER</h1>
+        <p id="gameOverMessage">You have been defeated!</p>
+        <div id="gameStats">
+            <p>Final Room: <span id="finalRoomStat">1</span></p>
+            <p>Strength: <span id="finalStrengthStat">1</span></p>
+            <p>Weapon: <span id="finalWeaponStat">Basic Sword</span></p>
+        </div>
+        <button id="restartButton">RESTART GAME</button>
+    </div>
+    <!-- Mobile controls -->
+    <div id="mobileControls">
+        <div id="lookControls"></div>
+        <div id="joystickContainer">
+            <div id="joystick"></div>
+        </div>
+        <div id="attackButton">
+            <span>Attack</span>
+        </div>
+    </div>
+    <script src="../static/js/script.js" type="module"></script>
+</body>
+
+</html>
+

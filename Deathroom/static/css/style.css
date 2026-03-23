@@ -1,0 +1,494 @@
+/* style.css */
+
+body {
+    margin: 0;
+    overflow: hidden;
+    background-color: #000;
+    font-family: Arial, sans-serif;
+    color: white;
+}
+
+#titleBackground {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, rgba(50, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.9) 70%);
+    z-index: 5;
+    pointer-events: none;
+    display: block;
+}
+
+#message {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    color: white;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 10px;
+    border-radius: 5px;
+    z-index: 100;
+}
+
+#gameTitle {
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 80px;
+    font-family: Cambria;
+    color: #ff3333;
+    text-shadow:
+        0 0 10px #ff0000,
+        0 0 20px #ff0000,
+        0 0 30px #ff0000,
+        2px 2px 2px rgba(0, 0, 0, 0.5);
+    letter-spacing: 5px;
+    z-index: 15;
+    text-transform: uppercase;
+    font-weight: bold;
+    animation: titleGlow 3s infinite alternate;
+}
+
+@keyframes titleGlow {
+    0% {
+        text-shadow:
+            0 0 10px #ff0000,
+            0 0 20px #ff0000,
+            0 0 30px #ff0000,
+            2px 2px 2px rgba(0, 0, 0, 0.5);
+    }
+
+    100% {
+        text-shadow:
+            0 0 15px #ff0000,
+            0 0 30px #ff0000,
+            0 0 45px #ff0000,
+            0 0 60px #ff3333,
+            2px 2px 2px rgba(0, 0, 0, 0.7);
+        color: #ff5555;
+    }
+}
+
+#startButton {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 15px 30px;
+    font-size: 24px;
+    font-family: Cambria;
+    background-color: #aa0000;
+    color: white;
+    border: 3px solid #ff6666;
+    border-radius: 8px;
+    cursor: pointer;
+    z-index: 10;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
+    transition: all 0.3s ease;
+}
+
+#startButton:hover {
+    background-color: #cc0000;
+    transform: translate(-50%, -50%) scale(1.05);
+    box-shadow: 0 0 30px rgba(255, 0, 0, 0.7);
+}
+
+#healthBar {
+    position: absolute;
+    bottom: 30px;
+    left: 30px;
+    width: 300px;
+    height: 25px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border: 2px solid #ffffff;
+    border-radius: 5px;
+    z-index: 5;
+}
+
+#healthFill {
+    width: 100%;
+    height: 100%;
+    background-color: #ff3333;
+    border-radius: 3px;
+    transition: width 0.3s;
+}
+
+#bossHealthBar {
+    position: absolute;
+    top: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 500px;
+    height: 25px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border: 2px solid #ffffff;
+    border-radius: 5px;
+    z-index: 5;
+    display: none;
+    position: relative;
+}
+
+#bossHealthFill {
+    width: 100%;
+    height: 100%;
+    background-color: #9933ff;
+    border-radius: 3px;
+    transition: width 0.5s;
+}
+
+#bossHealthText {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    text-shadow: 1px 1px 1px #000;
+    z-index: 6;
+    pointer-events: none;
+}
+
+#bossName {
+    position: absolute;
+    top: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 20px;
+    color: #ffffff;
+    text-shadow: 0 0 10px #9933ff;
+    z-index: 5;
+    display: none;
+}
+
+#crosshair {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 24px;
+    color: white;
+    z-index: 5;
+}
+
+#controls {
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 10px;
+    border-radius: 5px;
+    z-index: 5;
+}
+
+#statsPanel {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    padding: 10px 20px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border: 1px solid #ffffff;
+    border-radius: 5px;
+    font-size: 16px;
+    z-index: 5;
+}
+
+#weaponDisplay {
+    position: absolute;
+    bottom: 70px;
+    right: 30px;
+    padding: 10px 20px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border: 1px solid #ffffff;
+    border-radius: 5px;
+    font-size: 18px;
+    z-index: 5;
+}
+
+#pickupMessage {
+    position: absolute;
+    bottom: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 20px;
+    color: #ffff33;
+    text-shadow: 0 0 10px #ff9900;
+    opacity: 0;
+    transition: opacity 0.5s;
+    z-index: 5;
+}
+
+.fadeOut {
+    animation: fadeOut 2s forwards;
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+#damageOverlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 0, 0, 0.2);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s;
+    z-index: 4;
+}
+
+#gameOverScreen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    display: none;
+}
+
+#gameOverTitle {
+    font-size: 48px;
+    color: #ff3333;
+    margin-bottom: 20px;
+    text-shadow: 0 0 10px #ff0000;
+}
+
+#gameOverMessage {
+    font-size: 24px;
+    color: #ffffff;
+    margin-bottom: 40px;
+    text-align: center;
+    max-width: 80%;
+}
+
+#restartButton {
+    padding: 15px 30px;
+    font-size: 20px;
+    background-color: #ff3333;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#restartButton:hover {
+    background-color: #ff5555;
+}
+
+#gameStats {
+    margin-top: 30px;
+    font-size: 18px;
+    color: #dddddd;
+    text-align: center;
+}
+
+/* Mobile controls styles */
+#mobileControls {
+    display: none;
+    /* Hidden by default, shown only on mobile */
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    pointer-events: none;
+    /* Allow clicks to pass through container */
+    transform: scale(0.75);
+    /* Scale the entire mobile UI to 75% of original size */
+    transform-origin: bottom center;
+    /* Center the transform at the bottom of the screen */
+}
+
+#joystickContainer {
+    position: absolute;
+    bottom: 40px;
+    /* Increased from 30px to adjust for scaling */
+    left: 40px;
+    /* Increased from 30px to adjust for scaling */
+    width: 150px;
+    height: 150px;
+    background-color: rgba(0, 0, 0, 0.4);
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    border-radius: 75px;
+    pointer-events: auto;
+    /* Enable pointer events */
+    touch-action: none;
+    /* Disable browser handling of touch events */
+    z-index: 20;
+    /* Higher than lookControls */
+}
+
+#joystick {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70px;
+    height: 70px;
+    background-color: rgba(255, 255, 255, 0.6);
+    border-radius: 35px;
+    pointer-events: none;
+    /* Make joystick knob non-interactive */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+#attackButton {
+    position: absolute;
+    bottom: 60px;
+    /* Increased from 50px to adjust for scaling */
+    right: 60px;
+    /* Increased from 50px to adjust for scaling */
+    width: 100px;
+    height: 100px;
+    background-color: rgba(255, 50, 50, 0.6);
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    pointer-events: auto;
+    /* Enable pointer events */
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.5);
+    z-index: 20;
+    /* Higher than lookControls */
+}
+
+#lookControls {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+    /* Lower than joystick and attack button */
+    pointer-events: auto;
+    /* Enable pointer events for look control */
+}
+
+/* Add new rotation message styles */
+#rotateDevice {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    z-index: 2000;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+#rotateDevice img {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 20px;
+    animation: rotate 2s infinite linear;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(90deg);
+    }
+}
+
+#rotateDevice p {
+    font-size: 24px;
+    color: white;
+    margin: 10px 0;
+}
+
+/* Mobile-specific styles */
+@media (max-width: 768px) {
+    #controls {
+        font-size: 12px;
+        padding: 5px 8px;
+        bottom: 20px;
+        right: 20px;
+        max-width: 200px;
+    }
+
+    #weaponDisplay {
+        bottom: unset;
+        top: 90px;
+        right: 30px;
+        padding: 5px 10px;
+        font-size: 14px;
+    }
+
+    #statsPanel {
+        padding: 5px 10px;
+        font-size: 14px;
+    }
+
+    /* Hide all but the FPS number on mobile */
+    .stats canvas {
+        display: none !important;
+    }
+
+    .stats canvas:first-child {
+        display: block !important;
+    }
+
+    /* Make stats panel more compact */
+    .stats {
+        min-width: unset !important;
+        max-width: 50px !important;
+    }
+
+    /* Improved health bar for mobile */
+    #healthBar {
+        bottom: 20px;
+        left: 20px;
+        width: 250px;
+        height: 20px;
+    }
+
+    /* Improved boss health bar for mobile */
+    #bossHealthBar {
+        top: 20px;
+        width: 300px;
+        height: 20px;
+    }
+
+    /* Adjust crosshair size for mobile */
+    #crosshair {
+        font-size: 20px;
+    }
+
+    /* Reduced pickup message size */
+    #pickupMessage {
+        font-size: 16px;
+        bottom: 80px;
+    }
+}
